@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Abu Thamreeq</title>
+    <link rel="icon" href="{% static 'images/icon.png' %} " type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Kyros - Personal Website" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="" name="author" />
+    <!-- CSS Files
+    ================================================== -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" id="bootstrap" />
+
+    <link href="{% static 'css/plugins.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/custom-style-1.css' %}" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --primary-color: #50BEC2;
+            --primary-color-rgb: 80, 190, 194;
+        }
+    </style>
+    <link href="{% static 'css/coloring.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="onepage dark-scheme" >
+     
+
+
+    <div id="wrapper">
+        <!-- header begin -->
+        {% include 'partials/header.html' %}
+        <!-- header close -->
+        <div id="de-menu-container">
+            <div class="mainmenu-v2-wrap">
+                <ul id="mainmenu-v2">
+                    <li><a href="{% url 'web:index' %}">Home<span></span></a></li>
+                    <li><a href="#section-about">About me<span></span></a></li>
+                    <li><a href="{% url 'web:gallery' %}">Gallery<span></span></a></li>
+                    <li><a href= "{% url 'web:updates' %}"section-blog>Updates<span></span></a></li>
+                    <li><a href="{% url 'web:contact' %}">Contact Me<span></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+        
+            <!-- page preloader begin -->
+            <!-- <div id="preloader">
+                <div class="preloader1"></div>
+            </div> -->
+            <!-- page preloader close -->
+            
+            <!-- float text begin -->
+            <div class="float-text">
+                <div class="de_social-icons">
+                    <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                </div>
+                <span>Follow Me</span>
+            </div>
+            <!-- float text close --> 
+        
+            <!-- load external content begin -->
+            <div id="de_modal">
+                <button class="button-close"></button>
+                <div class="d-modal-loader"></div>
+            </div>
+             <!-- load external content close -->
+        
+        <!-- content begin -->
+
+        {% block content %}
+
+
+        {% endblock %}
+
+    </div>
+        <!-- content close -->
+        <a href="#" id="back-to-top"></a>
+        <!-- footer begin -->
+        {% include 'partials/footer.html' %}
+        <!-- footer close -->
+    </div>
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/designesia.js' %}"></script>
+    <script src='../../../www.google.com/recaptcha/api.js' async defer></script>
+    <script src="{% static 'form.js' %}"></script>
+ 
+    <script>
+    jQuery(function($) {
+        $('.g-recaptcha').attr('data-theme', 'dark');
+    });
+    </script>
+    <script>
+    jQuery(document).ready(function() {
+        $(function() {
+            // jquery typed plugin
+            $(".typed").typed({
+                stringsElement: $('.typed-strings'),
+                typeSpeed: 100,
+                backDelay: 500,
+                loop: true,
+                contentType: 'html', // or text
+                // defaults to false for infinite loop
+                loopCount: false,
+                callback: function() { null; },
+                resetCallback: function() { newTyped(); }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section id="section-portfolio" class="no-bottom">
+    <div class="container relative">
+        <div class="row">
+            <div class="col-md-12 text-center wow fadeInUp">
+                <h2>Gallery</h2>
+                
+                <div class="space-border"></div>
+            </div>
+        </div>
+        <div id="gallery" class="row sequence">
+          
+         
+            {% for item in image %}
+
+            <div class="col-md-4 item" data-wow-delay="0.2s" style="background-size: cover; position: absolute; left: 380px; top: 0px;">
+                <div class="de_modal wow fadeInUp animated" data-url="single-project.html" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-image-1 mod-d" data-tilt="" style="background-size: cover;">
+                        <div class="d-text" style="background-size: cover;">
+                            <h3>{{ item.content }}</h3>
+                            <h5 class="d-tag">website</h5>
+                        </div>
+                        <img style="height:238px ; width:356px ;" src="{{item.photo.url}}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+     
+
+            
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
