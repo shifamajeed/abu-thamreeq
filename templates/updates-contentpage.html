@@ -6,9 +6,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+            
             <div class="blog-read">
 
-                <img alt="" src="{% static 'images/blog/1.jpg' %} " class="img-fullwidth rounded">
+                <img alt="" src="{{datas.images.url}}" class="img-fullwidth rounded">
 
                 <div class="post-info">
                     <span class="post-date">April 1, 2018</span>
@@ -16,18 +17,16 @@
                     <span class="post-comment">5</span>
                 </div>
 
-                <h2>How to Make Better User Interface</h2>
+                <h2>{{datas.heading}}</h2>
 
                 <div class="post-text">
-                    <p>Quis sunt quis do laboris eiusmod in sint dolore sit pariatur consequat commodo aliqua nulla ad dolor aliquip incididunt voluptate est aliquip adipisicing ea cupidatat nostrud incididunt aliquip dolore. Sed minim nisi duis laborum est labore nisi amet elit adipisicing proident do consectetur dolor labore sit nisi ad proident esse ad velit nisi irure reprehenderit ut et dolor labore veniam quis.</p>
+                    <p>{{datas.description|safe}}</p>
 
-                    <p>Sunt duis laboris ex et quis laborum laborum cillum mollit voluptate culpa consequat ex cupidatat dolor eiusmod proident proident cillum pariatur sint adipisicing in nostrud do dolore consectetur quis incididunt minim consectetur. Exercitation elit proident dolor est id eiusmod dolor dolor incididunt ad voluptate laboris cupidatat est est sint veniam sint officia sint incididunt est sit ut tempor commodo pariatur ut proident et do.</p>
-
-                    <p>Sed eu in ut sint dolor irure fugiat minim veniam sed ea proident ullamco occaecat irure ut velit eu ullamco fugiat cupidatat dolore fugiat. Lorem ipsum id non deserunt id consequat duis voluptate amet aliqua pariatur laboris officia pariatur veniam velit reprehenderit sint nostrud cupidatat magna eiusmod mollit exercitation pariatur nulla minim laboris dolore aliqua consectetur cillum duis aute consectetur.</p>
+                    
                 </div>
 
             </div>
-
+         
             <div id="blog-comment">
                 <h4>Comments</h4>
 
@@ -64,7 +63,7 @@
 
                     <li>
                         <div class="avatar">
-                            <img src="{% static 'images/blog/1.jpg' %} "alt=""></div>
+                            <img src="{{item.images.url}}"alt=""></div>
                         <div class="comment-info">
                             <span class="c_name">Reginald Safi</span>
                             <span class="c_date id-color">15 January 2020</span>

@@ -12,73 +12,23 @@
             </div>
         </div>
         <div id="carousel-blog" class="owl-carousel wow fadeInUp">
-           <a href="contentpage"> <div class="bloglist item">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/1.jpg' %}" class="lazy"></div>
-                    </div>
-                    <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">How to Make Better User Interface</h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                    </div>
-                </div>
-            </div></a>
+            {% for item in datas %}
+
             <div class="bloglist item">
+                <a href="{% url 'web:updates-contentpage' item.id %}"class="stretched-link"></a>
                 <div class="post-content">
                     <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/2.jpg' %}" class="lazy"></div>
+                        <div class="de_modal" data-url="single-blog.html"><img style="height:314px;width: 355px;" src="{{item.images.url}}" class="lazy"></div>
                     </div>
                     <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">10 Web Design Tips From Experts</h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
+                        <h4 class="de_modal" data-url="single-blog.html">{{item.heading}}</h4>
+                        <p>{{item.description|safe}}</p>
                     </div>
                 </div>
             </div>
-            <div class="bloglist item">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/3.jpg' %}" class="lazy"></div>
-                    </div>
-                    <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">The Importance of Web Design</h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bloglist item">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/4.jpg' %}" class="lazy"></div>
-                    </div>
-                    <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">10 Web Design Tips From Experts</h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bloglist item">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/5.jpg' %}" class="lazy"></div>
-                    </div>
-                    <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">The Importance of Web Design</h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bloglist item">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static 'images/blog/6.jpg' %}" class="lazy"></div>
-                    </div>
-                    <div class="post-text">
-                        <h4 class="de_modal" data-url="single-blog.html">Tips for Healthy Teeth<span></span></h4>
-                        <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        
     </div>
 </section>
 

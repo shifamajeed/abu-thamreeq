@@ -127,58 +127,29 @@
             <div class="owl-stage-outer">
                 <div class="owl-stage"
                     style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2282px;">
+                    {% for data in data %}
                     <div class="owl-item active" style="width: 355.333px; margin-right: 25px;">
-                        <a href="contentpage">
+                        <a href="{% url 'web:updates-contentpage' data.id %}"class="stretched-link"></a>
                         <div class="bloglist item" style="background-size: cover;">
                             <div class="post-content" style="background-size: cover;">
 
                                 <div class="post-image" style="background-size: cover;">
-                                    <a href="contentpage" data-url="single-blog.html"
-                                        style="background-size: cover;"><img alt=""
-                                            src="{% static 'images/blog/1.jpg' %}" class="lazy">
+                                    <a data-url="single-blog.html"
+                                        style="background-size: cover;"><img style="height:355px ; width:314px ;" alt=""
+                                            src="{{data.images.url}}" class="lazy">
                                     </a>
                                 </div>
                                 <div class="post-text" style="background-size: cover;">
-                                    <h4 class="de_modal" data-url="single-blog.html">How to Make Better User Interface
+                                    <h4 class="de_modal" data-url="single-blog.html">
+                                        {{data.heading}}
                                     </h4>
-                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                                        reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="owl-item active" style="width: 355.333px; margin-right: 25px;">
-                        <div class="bloglist item" style="background-size: cover;">
-                            <div class="post-content" style="background-size: cover;">
-                                <div class="post-image" style="background-size: cover;">
-                                    <div class="de_modal" data-url="single-blog.html" style="background-size: cover;">
-                                        <img alt="" src="{% static 'images/blog/2.jpg' %}" class="lazy"></div>
-                                </div>
-                                <div class="post-text" style="background-size: cover;">
-                                    <h4 class="de_modal" data-url="single-blog.html">10 Web Design Tips From Experts
-                                    </h4>
-                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                                        reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
+                                    <p>{{data.description|safe}}...</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="owl-item active" style="width: 355.333px; margin-right: 25px;">
-                        <div class="bloglist item" style="background-size: cover;">
-                            <div class="post-content" style="background-size: cover;">
-                                <div class="post-image" style="background-size: cover;">
-                                    <div class="de_modal" data-url="single-blog.html" style="background-size: cover;">
-                                        <img alt="" src="{% static 'images/blog/3.jpg' %}" class="lazy"></div>
-                                </div>
-                                <div class="post-text" style="background-size: cover;">
-                                    <h4 class="de_modal" data-url="single-blog.html">The Importance of Web Design</h4>
-                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                                        reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                   
                     
                 </div>
             </div>

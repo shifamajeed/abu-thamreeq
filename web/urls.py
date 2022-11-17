@@ -9,6 +9,6 @@ urlpatterns = [
         path('gallery',views.gallery,name='gallery'),
         path('updates',views.updates,name='updates'),
         path('contact',views.contact,name='contact'),
-        path('contentpage',views.contentpage,name='updates-contentpage'),
+        path('contentpage/<id>',views.contentpage,name='updates-contentpage'),
 
 ]
