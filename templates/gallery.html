@@ -18,13 +18,16 @@
             {% for item in image %}
 
             <div class="col-md-4 item" data-wow-delay="0.2s" style="background-size: cover; position: absolute; left: 380px; top: 0px;">
-                <div class="de_modal wow fadeInUp animated" data-url="single-project.html" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+               
+                <div class=" wow fadeInUp animated" data-url="single-project.html" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
                     <div class="card-image-1 mod-d" data-tilt="" style="background-size: cover;">
                         <div class="d-text" style="background-size: cover;">
-                            <h3>{{ item.content }}</h3>
-                            <h5 class="d-tag">website</h5>
+                            
+                            
                         </div>
+                        <a href="{% url 'web:content' item.id %}"class="stretched-link"></a>
                         <img style="height:238px ; width:356px ;" src="{{item.photo.url}}" class="img-fluid" alt="">
+                        <h3 class="text-center" style="padding: 4px;">{{ item.content }}</h3>
                     </div>
                 </div>
             </div>

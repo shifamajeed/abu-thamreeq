@@ -3,8 +3,10 @@ from  .models import *
 
 def index(request):
     data = Update.objects.all().order_by('-id')[:3]
- 
-    return render(request,"index.html",{'data':data})
+    context = {
+        'data':data
+    }
+    return render(request,"index.html",context)
 
 def base(request):
     return render(request,"partials/base.html")
@@ -15,6 +17,13 @@ def gallery(request):
         'image':image
     }
     return render(request,"gallery.html",context)
+    
+def content(request,id):
+    image = Gallery.objects.get(id=id)
+    context = {
+        'image':image
+    }
+    return render(request,"gallery-contentpage.html",context)
 
 def updates(request):
     datas = Update.objects.all()
@@ -28,8 +37,9 @@ def contentpage(request,id):
     context={
         'datas':datas
     }
-
     return render(request,"updates-contentpage.html",context)
+
 
 def contact(request):
     return render(request,"contact.html")
+

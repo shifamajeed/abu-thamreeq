@@ -10,5 +10,5 @@ urlpatterns = [
         path('updates',views.updates,name='updates'),
         path('contact',views.contact,name='contact'),
         path('contentpage/<id>',views.contentpage,name='updates-contentpage'),
-
+        path('content/<id>',views.content,name='content'),
 ]

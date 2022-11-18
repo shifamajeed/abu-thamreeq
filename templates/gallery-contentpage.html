@@ -1,0 +1,42 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <div id="de_modal-content" class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <img  src="{{image.photo.url}}" alt="" class="img-fluid">
+            </div>
+    
+            <div class="col-lg-8 de_project-info">
+                <h3>Single Image</h3>
+                <p>{{image.description|safe}}</p>
+               
+                <div class="de_project-details">
+                    <div class="d-field">
+                        <i class="fa fa-user-o"></i>Client: <span>Envato</span>
+                    </div>
+                    <div class="d-field">
+                        <i class="fa fa-file-text-o"></i>Type: <span>Branding</span>
+                    </div>
+                    <div class="d-field">
+                        <i class="fa fa-calendar-o"></i>Year: <span>2020</span>
+                    </div>
+                    <div class="d-field">
+                        <i class="fa fa-external-link"></i>Preview: <span><a href="https://www.envato.com">www.envato.com</a></span>
+                    </div>
+                </div>
+                <div class="spacer-30"></div>
+                <blockquote>
+                    "Very well done theme. Versatile, extremely well coded, and gorgeous. That's a great combo. Highly recommended."
+                    <span>John Archi</span>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    
+
+</section>
+
+
+{% endblock %}

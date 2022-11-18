@@ -65,6 +65,7 @@ Table of Content
 /* body */
 /* ================================================== */
 
+
 html {
     overflow-x: hidden;
     padding: 0;
@@ -6920,6 +6921,7 @@ i.font60 {
     .d-skills-bar .d-bar .d-progress-line{
         width: 100%;
     }
+   
 }      
 
 /* circle bar */
@@ -8819,7 +8821,9 @@ a.btn-right {
         right: unset;
         top: 0;
     }
-
+    .blockquote.q-big{
+        font-size: 22px;
+    }
     .single-timeline:nth-child(2n) .timeline-text {
         padding-left: 30px;
         padding-right: 0;
@@ -16701,7 +16705,7 @@ blockquote.very-big span {
 
 blockquote.q-big{
     color: #202020;
-    font-size: 32px;
+    font-size: 23px;
     border: none;
     margin: 0;
     padding: 0;
@@ -16930,7 +16934,7 @@ img {
 @media (min-width: 768px) and (max-width: 979px) {
     .slider_text {
         padding-top: 0px;
-    }
+    }z
 }
 
 @media only screen and (max-width: 1090px) {

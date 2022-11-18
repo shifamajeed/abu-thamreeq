@@ -8,6 +8,7 @@ from tinymce.models import HTMLField # is for text larger than textfield
 class Gallery(models.Model):
     photo = models.FileField(upload_to='gallery/', null=True, blank=True)
     content =models.CharField(max_length=500)
+    description = HTMLField()
 
 
     
@@ -16,7 +17,8 @@ class Gallery(models.Model):
 
 class Update(models.Model):
     images = models.FileField(upload_to='gallery/', null=True, blank=True)
-    heading = models.CharField(max_length=500)
+    heading = models.CharField(max_length=200)
+    subdescription = models.CharField(max_length=400)
     description = HTMLField()
 
     def __str__(self):
