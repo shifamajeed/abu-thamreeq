@@ -3,7 +3,7 @@
 {% block content %}
 
 <section>
-<div class="container">
+<div class="container p-2">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             
@@ -11,11 +11,11 @@
 
                 <img alt="" src="{{datas.images.url}}" class="img-fullwidth rounded">
 
-                <div class="post-info">
+                <!-- <div class="post-info">
                     <span class="post-date">April 1, 2018</span>
                     <span class="post-like">181</span>
                     <span class="post-comment">5</span>
-                </div>
+                </div> -->
 
                 <h2>{{datas.heading}}</h2>
 
@@ -35,7 +35,7 @@
                 <ol>
                     <li>
                         <div class="avatar">
-                            <img src="{% static 'images/blog/1.jpg' %} "alt=""></div>
+                            <img src="{% static 'images/blog/avatar-1.jpg' %}" alt=""></div>
                         <div class="comment-info">
                             <span class="c_name">Jovan Eadie</span>
                             <span class="c_date id-color">15 January 2020</span>
@@ -49,7 +49,7 @@
 
                     <li>
                         <div class="avatar">
-                            <img src="{% static 'images/blog/1.jpg' %} " alt=""></div>
+                            <img src="{% static 'images/blog/avatar-2.jpg' %}" alt=""></div>
                         <div class="comment-info">
                             <span class="c_name">Ariana Haylock</span>
                             <span class="c_date id-color">15 January 2020</span>
@@ -63,7 +63,7 @@
 
                     <li>
                         <div class="avatar">
-                            <img src="{{item.images.url}}"alt=""></div>
+                            <img src="{% static 'images/blog/avatar-3.jpg' %}" alt=""></div>
                         <div class="comment-info">
                             <span class="c_name">Reginald Safi</span>
                             <span class="c_date id-color">15 January 2020</span>

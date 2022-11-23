@@ -25,3 +25,15 @@ class Update(models.Model):
         return str(self.heading)
 
     
+class Contact(models.Model):
+    name = models.CharField(max_length=40, null=True)
+    place = models.CharField(max_length=40, null=True)
+    phone = models.CharField(max_length=15, null=True)
+    purpose = models.CharField(max_length=500, null=True)
+    appointmentdat= models.DateField()
+    appointmenttime = models.TimeField()
+
+    def _str_(self):
+        return str(self.name)
+
+    

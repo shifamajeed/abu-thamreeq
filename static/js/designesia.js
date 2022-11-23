@@ -1684,7 +1684,7 @@
         de_countdown();
         dropdown('#item_category');
         image_preview();
-        $(".jarallax").jarallax();
+        // $(".jarallax").jarallax();
         $(function() {
             $('.lazy').lazy();
         });
@@ -2123,3 +2123,5 @@
 
     });
  })(jQuery);
+
+ 

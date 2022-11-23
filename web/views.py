@@ -1,11 +1,27 @@
 from django.shortcuts import render, redirect
 from  .models import *
+from django.contrib import messages
+
 
 def index(request):
     data = Update.objects.all().order_by('-id')[:3]
+    if request.method == "POST":
+        name=request.POST['Name']
+        place=request.POST['place']
+        phone=request.POST['phone']
+        purpose=request.POST['purpose']
+        date=request.POST['date']
+        time=request.POST['time']
+        
+        contact=Contact(name=name,place=place,phone=phone,purpose=purpose,appointmentdat=date,appointmenttime=time)
+        messages.success(request, 'success')
+        contact.save()
+        
     context = {
         'data':data
     }
+
+
     return render(request,"index.html",context)
 
 def base(request):
@@ -41,5 +57,17 @@ def contentpage(request,id):
 
 
 def contact(request):
+    if request.method == "POST":
+        name=request.POST['Name']
+        place=request.POST['place']
+        phone=request.POST['phone']
+        purpose=request.POST['purpose']
+        date=request.POST['date']
+        time=request.POST['time']
+        
+        contact=Contact(name=name,place=place,phone=phone,purpose=purpose,appointmentdat=date,appointmenttime=time)
+        messages.success(request, 'success')
+        contact.save()
+
     return render(request,"contact.html")
 
