@@ -2,21 +2,195 @@
 {% load static %}
 {% block content %}
 
+<style>
+
+   
+    .read-more-check {
+        display: none;
+    }
+
+    .read-more-label:before {
+        /* content: "^"; */
+        top: .4rem;
+        position: absolute;
+        color: white;
+        right: .5rem;
+        font-size: 1rem;
+        transform: rotate(180deg);
+    }
+
+    .read-more-check:checked~.read-more-label:before {
+        top: .7rem;
+        transform: rotate(0);
+    }
+
+    
+
+    .read-more-label {
+        position: absolute;
+        display: block;
+        left: 83%;
+        /* margin: -2.5rem; */
+        /* width: 7rem; */
+        bottom: 9rem;
+        /* padding: .5rem .9rem .5rem .5rem; */
+        /* background-color: #6200ee; */
+        color: lightblue;
+        /* text-shadow: 0 .1rem .3rem rgba(255, 255, 255, .3); */
+        text-align: center;
+        /* text-transform: uppercase; */
+        outline: none;
+        cursor: pointer;
+        /* box-shadow: 0 .15rem .3rem rgba(0,0,0,.4); */
+        transition: bottom .5s linear 0s;
+    }
+
+    .read-more-check:checked~.read-more-label {
+        bottom: 0;
+    }
+
+    .read-more-label:hover {
+        /* background-color: #6f1ff0; */
+    }
+
+    /*
+  The styles above aren't related with the functionality
+*/
+    
+
+    /*
+The down side of this approach is that you have to know what will be the max-height in advance
+*/
+    .read-more-check:checked~.read-more {
+        max-height: 20rem;
+    }
+
+    .selectbox{
+        width: 231px; 
+    }
+    @media (min-width: 40rem) {
+        .read-more-check:checked~.read-more {
+            max-height: 18rem;
+        }
+    }
+    @media (max-width:700px){
+        .read-more-label{
+           left: 59%;
+           bottom: 1rem;
+        } 
+        .read-more {
+        max-height: 0;
+        display: block;
+        overflow: hidden;
+        transition: max-height .5s linear 0s;
+    }
+    .read-more-label:after {
+        content: 'Show More';
+    }
+
+    .read-more-check:checked~.read-more-label:after {
+        content: 'Show Less';
+    }
+    .selectbox{
+      width: 330px;  
+    }
+
+    
+    }
+   
+    .dropdown {
+        display: inline-block;
+        position: relative;
+    }
+
+    .dd-button {
+        display: inline-block;
+        border: 1px solid gray;
+        border-radius: 4px;
+        padding: 10px 30px 10px 20px;
+        background-color: #ffffff;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .dd-button:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
+    }
+
+    .dd-button:hover {
+        background-color: #eeeeee;
+    }
+
+
+    .dd-input {
+        display: none;
+    }
+
+    .dd-menu {
+        position: absolute;
+        top: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0;
+        margin: 2px 0 0 0;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        list-style-type: none;
+    }
+
+    .dd-input+.dd-menu {
+        display: none;
+    }
+
+    .dd-input:checked+.dd-menu {
+        display: block;
+    }
+
+    .dd-menu li {
+        padding: 10px 20px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .dd-menu li:hover {
+        background-color: #f6f6f6;
+    }
+
+    .dd-menu li a {
+        display: block;
+        margin: -10px -20px;
+        padding: 10px 20px;
+    }
+
+    .dd-menu li.divider {
+        padding: 0;
+        border-bottom: 1px solid #cccccc;
+    }
+</style>
 
 
 <section aria-label="section" class="jarallax no-top-md no-bottom" style="z-index: 0; background-size: cover;">
 
     <div class="container" style="background-size: cover;">
         <div class="row align-items-center" style="background-size: cover;">
-            <div class="col-md-6 offset-md-1 jarallax d-lg-none" style="background-size: cover;">
+            <div class="col-md-6 offset-md-1 jarallax d-lg-none d-sm-none smpic1" style="background-size: cover;">
                 <img src="{% static 'images/misc/abu sir.png' %} " class="img-fluid wow fadeInUp animated"
                     data-wow-delay=".8s" alt=""
                     style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
             </div>
             <div class="col-md-5" style="background-size: cover;">
-                <h5 class="s1 wow fadeInUp animated" data-wow-delay=".4s"
+                <!-- <h5 class="s1 wow fadeInUp animated" data-wow-delay=".4s"
                     style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Welcome to My Website
-                </h5>
+                </h5> -->
                 <div class="spacer-10" style="background-size: cover;"></div>
                 <div class="h1 text-white wow fadeInUp animated" data-wow-delay=".6s"
                     style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
@@ -26,7 +200,7 @@
                         <p>Programmer.</p>
                         <p>Photographer.</p>
                     </div> -->
-                    <div class="" style="background-size: cover;">a Freelancer</div>
+                    <div class="" style="background-size: cover;">Business consultant & Brand consultant </div>
                 </div>
                 <p class="wow fadeInUp animated" data-wow-delay=".6s"
                     style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
@@ -38,6 +212,7 @@
                 <!-- <a class="btn-main wow fadeInUp animated" data-wow-delay=".6s" href="#section-resume"
                     style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">My Resume</a> -->
             </div>
+
             <div class="col-md-6 offset-md-1 jarallax smpic" style="background-size: cover;">
                 <img src="{% static 'images/misc/abu sir.png' %} " class="img-fluid wow fadeInUp animated"
                     data-wow-delay=".8s" alt=""
@@ -58,59 +233,94 @@
             style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: 0px; left: 0px; width: 1360px; height: 639.594px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: -7.79688px; transform: translate3d(0px, 7.79687px, 0px);">
     </div>
 </section>
+
 <section id="section-about" class="no-bottom " style="background-size: cover;padding-top: 0px;">
+    <div class="de-gradient-edge-top" style="background-size: cover;"></div>
     <div class="container relative" style="background-size: cover;">
         <div class="row align-items-center" style="background-size: cover;">
             <div class="col-md-6 wow fadeInUp animated smpic"
                 style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
                 <img src="{% static 'images/misc/abu sir.png' %} " class="img-fluid" alt="">
             </div>
-            <div class="col-md-6 wow fadeInUp animated" data-wow-delay=".2s"
-                style="background-size: cover; visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                <h2>About Thamreeq</h2>
-                <p>In quis amet ex veniam in irure est culpa veniam velit fugiat cupidatat duis anim commodo elit in
-                    occaecat cupidatat eu et sunt commodo voluptate ullamco magna nulla amet. Lorem ipsum officia veniam
-                    enim sit culpa velit proident enim ea officia aute non in mollit culpa anim magna sit veniam irure
-                    eiusmod.</p>
 
-
-
-
-            </div>
+            <article class="main col-md-6">
+                <div class="col-md-12 text-center wow fadeInUp animated"
+                    style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+                    <h2>About Thamreeq</h2>
+                    <div class="space-border" style="background-size: cover;"></div>
+                </div>
+                </p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ex semper maximus cursus.
+                Donec ac ultrices ipsum. Sed ut tincidunt urna. Nullam bibendum non nisl a viverra. Cras et arcu
+                vulputate, maximus elit non, feugiat magna. Morbi lacinia, quam vitae pharetra aliquet, justo quam
+                volutpat lacus, at ultricies metus tortor nec arcu. Morbi eu libero at elit sollicitudin egestas.
+                Vivamus vitae ipsum ligula. Nulla varius dictum eros, vel vulputate risus pretium sed. Nulla quis odio
+                eget augue hendrerit maximus. Nam sed purus tempor, imperdiet dui aliquam, tincidunt ipsum.
+                </p>
+                <input id="read-more-check-1" type="checkbox" class="read-more-check">
+                <label for="read-more-check-1" class="read-more-label"></label>
+                <p class="read-more">
+                    Pellentesque vulputate eros tellus, at varius ante rutrum sit amet. Suspendisse a vehicula leo.
+                    Nulla nisl massa, molestie ut turpis sed, placerat pulvinar metus. Mauris sodales mattis orci
+                    faucibus commodo. Mauris lobortis quam sapien. Proin posuere ac libero ut accumsan. Aliquam ut
+                    euismod nisl, vitae viverra dui. Sed molestie arcu nec luctus sagittis. Maecenas at pellentesque
+                    risus. Nam sodales dui quam, eget porta dui tristique in. Duis molestie porttitor libero, sed
+                    hendrerit sem hendrerit ut. Vestibulum non lobortis odio. Sed ullamcorper neque sagittis, hendrerit
+                    enim in, efficitur augue.
+                <p>
+            </article>
         </div>
     </div>
 </section>
+<div style="background-color:#171A1D;">
+    <br>
+</div>
+<section id="section-blog" class="no-bottom col-lg-8 mx-auto" style="background-size: cover;">
+    <div class="container relative" style="background-size: cover;">
+        <div class="row" style="background-size: cover;background-color: #171A1D;">
+            <div class="col-md-12 text-center wow fadeInUp animated"
+                style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+                <h2>Recent Projects</h2>
+                <div class="space-border" style="background-size: cover;"></div>
+            </div>
+        </div>
+        <div id="carousel-blog" class="owl-carousel wow fadeInUp owl-loaded owl-drag animated"
+            style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+            <div class="owl-stage-outer">
+                <div class="owl-stage"
+                    style="transform: translate3d(0px, 0px, 0px); transition: all 0.75s ease 0s; width: 2282px;">
 
-<section id="section-my-quote" aria-label="section" class="jarallax no-top no-bottom "
-    style="z-index: 0; background-size: cover; padding-bottom: 20px;">
+                    {% for project in project%}
+                    <div class="owl-item active " style="width: 355.333px; margin-right: 25px;">
+                        <div class="bloglist item" style="background-size: cover;">
+                            <div class="post-content" style="background-size: cover;">
+                                <h6 class="" data-url="single-blog.html">{{ project.heading }}</h6>
+                                <div class="post-image" style="background-size: cover;">
+                                    <div class="" data-url="single-blog.html" style="background-size: cover;height: 105px;"><img
+                                            alt="" src="{{ project.photo.url }}" class="lazy grayscale">
+                                    </div>
+                                </div>
+                                <div  class="post-text" style="background-size: cover;font-size: 12px;line-height: 1px;">
 
-    <div class="v-center" style="background-size: cover;"> 
-        <div class="container" style="background-size: cover;">
-            <div class="row align-items-center" style="background-size: cover;">
-                <div class="col-md-10 offset-md-1" style="background-size: cover;">
-                    <blockquote class="q-big wow fadeIn animated" data-wow-duration="3s"
-                        style="animation-duration: 3s">
-                        <i class="d-big icon_quotations"></i>
-                        Do more than is required. What is the distance between someone who achieves their goals
-                        consistently and those who spend their lives and careers merely following? The extra mile.
-                        <!-- <span class="d-quote-by">Kyros Noriaki</span> -->
-                    </blockquote>
-                   
+                                    <p >{{project.description|safe}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
+            <!-- <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span
+                        aria-label="Previous">‹</span></button><button type="button" role="presentation"
+                    class="owl-next"><span aria-label="Next">›</span></button></div> -->
+            <!-- <div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button
+                    role="button" class="owl-dot"><span></span></button></div> -->
         </div>
-     </div> 
-    <!-- <div class="de-gradient-edge-bottom" style="background-size: cover;"></div> -->
-    <div id="jarallax-container-2"
-        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%); background-size: cover;">
-        <img src="{% static 'images/background/2.jpg' %}" class="jarallax-img" alt=""
-            style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: 0px; left: 0px; width: 1360px; height: 624px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 0px; transform: translate3d(0px, -242.609px, 0px);">
     </div>
 </section>
 
 
-
-<section id="section-blog" class="no-bottom " style="background-size: cover;">
+<section id="section-blog" class="no-bottom " style="background-size: cover;margin-top: 9px;">
+    <div class="de-gradient-edge-top" style="background-size: cover;background: none;"></div>
     <div class="container relative" style="background-size: cover;">
         <div class="row" style="background-size: cover;">
             <div class="col-md-12 text-center wow fadeInUp animated"
@@ -132,18 +342,18 @@
                     style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2282px;">
                     {% for data in data %}
                     <div class="owl-item active" style="width: 355.333px; margin-right: 25px;">
-                        <a href="{% url 'web:updates-contentpage' data.id %}"class="stretched-link"></a>
+                        <a href="{% url 'web:updates-contentpage' data.id %}" class="stretched-link"></a>
                         <div class="bloglist item" style="background-size: cover;">
                             <div class="post-content" style="background-size: cover;">
 
                                 <div class="post-image" style="background-size: cover;">
-                                    <a data-url="single-blog.html"
-                                        style="background-size: cover;"><img style=" height: 266px;width: 354px;" alt=""
-                                            src="{{data.images.url}}" class="lazy">
+                                    <a data-url="single-blog.html" style="background-size: cover;"><img
+                                            style=" height: 266px;width: 354px;" alt="" src="{{data.images.url}}"
+                                            class="lazy">
                                     </a>
                                 </div>
                                 <div class="post-text" style="background-size: cover;">
-                                    <h4  data-url="single-blog.html">
+                                    <h4 data-url="single-blog.html">
                                         {{data.heading}}
                                     </h4>
                                     <p>{{data.subdescription|safe}}...</p>
@@ -152,8 +362,8 @@
                         </div>
                     </div>
                     {% endfor %}
-                   
-                    
+
+
                 </div>
             </div>
 
@@ -161,7 +371,7 @@
         </div>
     </div>
     <div id="submit" class="mt10 text-center" style="background-size: cover;padding: 17px;">
-       <a href="{% url 'web:updates' %}"><input type="submit" id="View More" value="View More" class="btn-main"></a> 
+        <a href="{% url 'web:updates' %}"><input type="submit" id="View More" value="View More" class="btn-main"></a>
     </div>
 </section>
 
@@ -172,75 +382,90 @@
 </div>
 
 <section id="section-fun-facts" aria-label="section" class="jarallax" style="z-index: 0; background-size: cover;">
-    <div class="col-md-12 text-center wow fadeInUp " style="background-size: cover; visibility: visible; animation-name: fadeInUp;padding-top:20px ;">
-        <h2>Group of companies</h2>
-        <div class="" style="background-size: cover;"></div>
+    <div class="de-gradient-edge-top" style="background-size: cover;background: none;"></div>
+    <div class="col-md-12 text-center wow fadeInUp animated"
+        style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+        <h2>Group of Companies</h2>
+        <div class="space-border" style="background-size: cover;"></div>
     </div>
-    
+
     <div class="container" style="background-size: cover; padding-bottom: 20px;">
-            <div class="row" style="background-size: cover;">
+        <div class="row" style="background-size: cover;">
 
-                <div class="col-lg-4 col-sm-6  wow fadeIn " data-wow-delay="0" style="background-size: cover; visibility: visible; animation-name: fadeIn;">
-                    <div class="de_count text-center" style="background-size: cover;">
-                        <img style="width: 158px;" src="{% static 'images/logo.png'%}" alt="">
-                        <!-- <span>Hours of Works</span> -->
-                    </div>
+            <div class="col-lg-4 col-sm-6  wow fadeIn " data-wow-delay="0"
+                style="background-size: cover; visibility: visible; animation-name: fadeIn;">
+                <div class="de_count text-center" style="background-size: cover;">
+                    <img style="width: 158px;" src="{% static 'images/logo.png'%}" alt="">
+                    <!-- <span>Hours of Works</span> -->
                 </div>
+            </div>
 
-                <div class="col-lg-4  col-sm-6  wow fadeIn " data-wow-delay=".25s" style="background-size: cover; visibility: visible; animation-delay: 0.25s; animation-name: fadeIn;">
-                    <div class="de_count text-center" style="background-size: cover;">
-                        <img style="width: 158px;" src="{% static 'images/BIXJI-1.png'%}" alt="">
-                        <!-- <span>Projects Done</span> -->
-                    </div>
+            <div class="col-lg-4  col-sm-6  wow fadeIn " data-wow-delay=".25s"
+                style="background-size: cover; visibility: visible; animation-delay: 0.25s; animation-name: fadeIn;">
+                <div class="de_count text-center" style="background-size: cover;">
+                    <img style="width: 158px;" src="{% static 'images/BIXJI-1.png'%}" alt="">
+                    <!-- <span>Projects Done</span> -->
                 </div>
+            </div>
 
-                <div class="col-lg-4  col-sm-6  wow fadeIn " data-wow-delay=".5s" style="background-size: cover; visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
-                    <div class="de_count text-center" style="background-size: cover;">
-                        <img style="width: 158px;" src="{% static 'images/png.png'%}" alt="">
-                        <!-- <span>Satisfied Customers</span> -->
-                    </div>
+            <div class="col-lg-4  col-sm-6  wow fadeIn " data-wow-delay=".5s"
+                style="background-size: cover; visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="de_count text-center" style="background-size: cover;">
+                    <img style="width: 158px;" src="{% static 'images/png.png'%}" alt="">
+                    <!-- <span>Satisfied Customers</span> -->
                 </div>
+            </div>
 
-                <!-- <div class="col-md-3 wow fadeIn " data-wow-delay=".75s" style="background-size: cover; visibility: visible; animation-delay: 0.75s; animation-name: fadeIn;">
+            <!-- <div class="col-md-3 wow fadeIn " data-wow-delay=".75s" style="background-size: cover; visibility: visible; animation-delay: 0.75s; animation-name: fadeIn;">
                     <div class="de_count text-center" style="background-size: cover;">
                         <h3 class="timer" data-to="32" data-speed="2500">32</h3>
                         <span>Awards Winning</span>
                     </div>
                 </div> -->
-            </div>
         </div>
+    </div>
     <div class="" style="background-size: cover;"></div>
-<div id="jarallax-container-3" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%); background-size: cover;"><img src="images/background/3.jpg" class="jarallax-img" alt="" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: 0px; left: 0px; width: 1360px; height: 447.398px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 88.3008px; transform: translate3d(0px, -137.426px, 0px);"></div>
+    <div id="jarallax-container-3"
+        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%); background-size: cover;">
+        <img src="images/background/3.jpg" class="jarallax-img" alt=""
+            style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: 0px; left: 0px; width: 1360px; height: 447.398px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 88.3008px; transform: translate3d(0px, -137.426px, 0px);">
+    </div>
 </section>
 
 <section id="section-contact" class="jarallax" style="z-index: 0; background-size: cover;padding-top: 60px;">
     <div class="de-gradient-edge-top" style="background-size: cover;"></div>
-    
+
     <div class="container z-index-1000" style="background-size: cover;">
         <div class="row" style="background-size: cover;">
-            <div class="col-md-12 text-center wow fadeInUp animated" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+            <div class="col-md-12 text-center wow fadeInUp animated"
+                style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
                 <h2>Connect Thamreeq</h2>
                 <div class="space-border" style="background-size: cover;"></div>
             </div>
-            <div class="col-lg-8 offset-lg-2 wow fadeInUp animated" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+            <div class="col-lg-8 offset-lg-2 wow fadeInUp animated"
+                style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
                 <div class="contact_form_wrapper" style="background-size: cover;">
                     {% if messages %}
 
                     {% for message in messages %}
                     {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
-                    
+
                     <div>{{ message }}</div>
-                    
+
                     {% endif %}
                     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                    
+
                     <div class="alert alert-success alert-dismissible fade show">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>	
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
                         <strong>{{ message }}!</strong> appointment request successfull
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                         </button>
                     </div>
-                    
+
                     {% endif %}
                     {% endfor %}
                     {% endif %}
@@ -248,42 +473,58 @@
                         {% csrf_token %}
                         <div class="row" style="background-size: cover;">
                             <div class="col-md-4" style="background-size: cover;">
+                                <h6>Name</h6>
                                 <div class="field-set" style="background-size: cover;">
-                                    <input type="text" name="Name" id="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" name="Name" id="name" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="col-md-4" style="background-size: cover;">
+                                <h6>Place</h6>
                                 <div class="field-set" style="background-size: cover;">
-                                    <input type="text" name="place" id="email" class="form-control" placeholder="Your place" required="">
+                                    <input type="text" name="place" id="email" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="col-md-4" style="background-size: cover;">
+                                <h6>Phone</h6>
                                 <div class="field-set" style="background-size: cover;">
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required="">
+                                    <input type="number" name="phone" id="phone" class="form-control"
+                                        style="border-radius: 9px;" required="">
                                 </div>
                             </div>
                             <div class="col-md-4" style="background-size: cover;">
+                                <h6>Purpose</h6>
                                 <div class="field-set" style="background-size: cover;">
-                                    <input type="text" name="purpose" id="email" class="form-control" placeholder="Purpose" required="">
+                                    <input type="text" name="purpose" id="email" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="col-md-4" style="background-size: cover;">
+                                <h6>Date</h6>
                                 <div class="field-set" style="background-size: cover;">
-                                    <input type="date" name="date" id="email" class="form-control" placeholder="Time" required="">
+                                    <input type="date" name="date" id="email" class="form-control" required="">
                                 </div>
                             </div>
+
                             <div class="col-md-4" style="background-size: cover;">
-                                <div class="field-set" style="background-size: cover;">
-                                    <input type="time" name="time" id="email" class="form-control" placeholder="Time" required="">
-                                </div>
+                                <h6>Time</h6>
+                               
+                                <select class="selectbox" name="time" style="height: 42px;" >
+                                    <!-- <option>Choose  -->
+                                    <option style="color:black ;" value="morning">morning
+                                    <option style="color:black ;" value="afternoon">afternoon
+                                    <option style="color:black ;" value="evening">evening
+                                  </select>
                             </div>
                         </div>
                         <button class="btn-main" type="submit"> submit</button>
-                     
+
                     </form>
                 </div>
+
                 <div class="spacer-double" style="background-size: cover;"></div>
-                <div class="row text-center wow fadeInUp animated" style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+
+                <div class="row text-center wow fadeInUp animated"
+                    style="background-size: cover; visibility: visible; animation-name: fadeInUp;">
+
                     <div class="col-md-4" style="background-size: cover;">
                         <div class="wm-1" style="background-size: cover;"></div>
                         <h6>Email </h6>
@@ -304,12 +545,16 @@
         </div>
     </div>
 
-<div id="jarallax-container-4" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%); background-size: cover;"><img src="{% static 'images/background/5.jpg' %}" class="jarallax-img" alt="" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: 0px; left: 0px; width: 1360px; height: 728.086px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: -52.043px; transform: translate3d(0px, -250.996px, 0px);"></div>
+    <div id="jarallax-container-4"
+        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%); background-size: cover;">
+        <img src="{% static 'images/background/5.jpg' %}" class="jarallax-img" alt=""
+            style="object-fit: cover; object-position: 50% 50%; max-width: none; position: absolute; top: -118px;
+            left: -331px; ">
+    </div>
 </section>
 
 
 
-</body>
 
 
 

@@ -5,3 +5,5 @@ from web.models import *
 admin.site.register (Gallery)
 admin.site.register (Update)
 admin.site.register (Contact)
+admin.site.register (Projects)
+

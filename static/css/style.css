@@ -163,7 +163,9 @@ header {
     background: #171A1D;
     margin: 0;
 }
-
+.imgwidth{
+    width: 1360px;
+}
 header.header-v2{
     min-height: 80px;
 }
@@ -3785,7 +3787,10 @@ hr {
 .form-underline input[type=email],
 .form-border input[type=password],
 .form-border input[type=date],
+.selectbox-time,
 .form-border input[type=time],
+.form-border input[type=checkbox],
+.form-border input[type=number],
 .form-border select {
     padding: 8px;
     margin-bottom: 20px;
@@ -3807,7 +3812,9 @@ hr {
 .dark-scheme .form-underline input[type=email],
 .dark-scheme .form-border input[type=password],
 .dark-scheme .form-border input[type=date],
+.selectbox-time,
 .dark-scheme .form-border input[type=time],
+.dark-scheme .form-border input[type=number],
 .dark-scheme .form-border select {
     color: #ffffff;
     border: solid 1px rgba(255, 255, 255, .2);
@@ -3831,7 +3838,9 @@ hr {
 .form-border textarea:focus,
 .form-underline input[type=email]:focus,
 .form-border input[type=date]:focus,
-/* .form-border input[type=time]:focus, */
+.selectbox-time,
+.form-border input[type=number]:focus,
+.form-border input[type=time]:focus,
 .form-border select:focus {
     background: rgba(var(--primary-color-rgb), .1);
 }
@@ -16708,7 +16717,7 @@ blockquote.very-big span {
 
 blockquote.q-big{
     color: #202020;
-    font-size: 23px;
+    font-size: 20px;
     border: none;
     margin: 0;
     padding: 0;
@@ -16962,7 +16971,7 @@ img {
    header.header-v2 #logo{
        margin: 0;
    }
-
+ 
     header a.btn-main {
         padding: 2px 12px !important;
     }
@@ -18099,8 +18108,9 @@ img {
         background-size: auto 100%;
         background-attachment: scroll;
     }
+   
 }
-
+    
 @media only screen and (max-width: 992px) {
     #subheader {
         -webkit-background-size: cover;
@@ -18140,6 +18150,21 @@ img {
         top: -21px;
     }
 }
+
+@media (max-width: 800px) {
+    smpic1{
+        display: none;
+    }  
+}
+@media only screen and (max-width: 800px) {
+    .imgwidth{
+        width: 393px;
+    }
+}
+
+
+
+
 
 /*
 #purchase-now, #selector, #back-to-top{

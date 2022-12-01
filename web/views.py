@@ -5,6 +5,7 @@ from django.contrib import messages
 
 def index(request):
     data = Update.objects.all().order_by('-id')[:3]
+    project = Projects.objects.all()
     if request.method == "POST":
         name=request.POST['Name']
         place=request.POST['place']
@@ -18,7 +19,8 @@ def index(request):
         contact.save()
         
     context = {
-        'data':data
+        'data':data,
+        'project':project
     }
 
 

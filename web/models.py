@@ -31,9 +31,14 @@ class Contact(models.Model):
     phone = models.CharField(max_length=15, null=True)
     purpose = models.CharField(max_length=500, null=True)
     appointmentdat= models.DateField()
-    appointmenttime = models.TimeField()
+    appointmenttime = models.CharField(max_length=40, null=True)
 
     def _str_(self):
         return str(self.name)
 
+
+class Projects(models.Model):
+    photo = models.FileField(upload_to='gallery/', null=True, blank=True)
+    heading =models.CharField(max_length=500)
+    description = HTMLField()
     
